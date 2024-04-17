@@ -10,16 +10,19 @@ Then, these inputs are ran through the layers of the GCN, which takes one at a t
 
 The output from the GCN is a node embeddingm which is the original node but transformed into an embedding vector, this represents all of the neighbour information about the node which was aggregated in the process before. Also a class score is given to each node, giving the likelihood of it belonging to a particular class eg.  
 
+# Mathematics
 
-# **Code**
+The basics mathematics of a GCN is relatively simple to grasp: first, the graph is represented with two matricies, the **adjacency** and the **degree** matrix. The adjacency matrix (_square_) having values indicating the prescence of a node and the degree matrix (_diagonal_), with each diagonal value indicating how many edges a node has (also reffered to as the **degree** of a node).
+
+Next is the actual main function of the GCN which is the GCNCONV (convolution) function: H^{(l+1)} = \sigma \left( D^{-\frac{1}{2}} A D^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)
+
+
+# Code
 
 First, we must install and call the correct libraries for the project:
 
 
-Then, using the .nn.datasets library, we extract the PPI (protein-protein interaction) dataset from the paper: 
-
-
-We must then preprocess the data, making sure it is in node, edge form:
+Then, using the .nn.datasets library as well as the help of DataLoader, ClusterData and ClusterLoader, we extract the PPI (protein-protein interaction) dataset from the paper, getting the following values when printed: 
 
 
 We must then create the GCN, this consists of a two core functions: **__init__** and **forward**. 
