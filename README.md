@@ -14,7 +14,8 @@ The output from the GCN is a node embeddingm which is the original node but tran
 
 The basics mathematics of a GCN is relatively simple to grasp: first, the graph is represented with two matricies, the **adjacency** and the **degree** matrix. The adjacency matrix (_square_) having values indicating the prescence of a node and the degree matrix (_diagonal_), with each diagonal value indicating how many edges a node has (also reffered to as the **degree** of a node).
 
-Next is the actual main function of the GCN which is the GCNCONV (convolution) function:```H^{(l+1)} = \sigma \left( D^{-\frac{1}{2}} A D^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)```
+Next is the actual main function of the GCN which is the GCNCONV (convolution) function:```latex
+H^{(l+1)} = \sigma \left( D^{-\frac{1}{2}} A D^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)```
 
 
 # Code
