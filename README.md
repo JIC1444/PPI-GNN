@@ -1,4 +1,4 @@
-# Python-GNN-Project
+# Python-Protein-Protein-Interaction-GNN-Project
 # Overview
 This project at its core is the representation of protein-protein interactions from the dataset: (PyTorch) and uses the NetworkX library to display the relationships between proteins within the dataset and uses a Graph Neural Network (GNN) built in PyTorch. Protein-protein interactions are key in predicting future interactions in drug development, the interconnected web of relationships and proteins requires deep learning methods to analyise and comprehend due to the sheer size and complexity of the dataset, as well as the hidden insights neural networks bring forward.
 
@@ -32,11 +32,11 @@ First, we must install and call the correct libraries for the project:
 Then, using the .nn.datasets library as well as the help of DataLoader, ClusterData and ClusterLoader, we extract the PPI (protein-protein interaction) dataset from the paper, getting the following values when printed: 
 
 
-We must then create the GCN, this consists of a two core functions: **__init__** and **forward**. 
+We must then create the GCN, this consists of one core function: **forward**. 
 
-The init function at the bare minimum takes in the variables: **num_node_features**, **hidden_dimension** and **num_classes**. num_node_features gives the number of input features per node. Hidden_dimension gives the dimension of the representations of the data learned between the GCN layers eg. if your input num_node_features = 10 and you set hidden_dimension = 20 then this allows the ability for the GCN to recognise more complex patterns, however too many hidden dimensions can lead to overfitting. num_classes will be two, since the protein's interactions here are binary: they interact or they don't. Extra variables can be added to customise the output of the GCN.
+The init function takes in the variables: **num_node_features**, **hidden_dimension** and **num_classes**. num_node_features gives the number of input features per node. Hidden_dimension gives the dimension of the representations of the data learned between the GCN layers eg. if your input num_node_features = 10 and you set hidden_dimension = 20 then this allows the ability for the GCN to recognise more complex patterns, however too many hidden dimensions can lead to overfitting. num_classes will be two, since the protein's interactions here are binary: they interact or they don't.
 
-The forward function allows forward propagation of the model, it has the node feature matrix (A) and the edge indexes fed into it and transforms each of the values in the matrix with a weight matrix applied.
+The forward function calls the two functions self.conv1,2 and uses the function ReLU. self.conv1,2 both take in their neighbours' information and combine it into a new node, however self.conv2 acts on a ReLU transformed matrix.
 
 
 We must then run a training loop for the data using the GCN model created:
