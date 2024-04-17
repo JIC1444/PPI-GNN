@@ -1,5 +1,5 @@
 # Python-GNN-Project
-
+# Overview
 This project at its core is the representation of protein-protein interactions from the dataset: (PyTorch) and uses the NetworkX library to display the relationships between proteins within the dataset and uses a Graph Neural Network (GNN) built in PyTorch. Protein-protein interactions are key in predicting future interactions in drug development, the interconnected web of relationships and proteins requires deep learning methods to analyise and comprehend due to the sheer size and complexity of the dataset, as well as the hidden insights neural networks bring forward.
 
 A knowledge graph (KG) consists of two objects: nodes and edges. The nodes represent a thing, it can be almost anything imaginable, for example a movie or a country, here though it is a protein. An edge is the way something interacts with another, for example Pilot is an episode of a TV show, here "episode" is the interaction, however for my KG True or False will be the set of edges (True if the proteins interact, False if not). A node can have many edges but an edge may only link two nodes.
@@ -11,12 +11,20 @@ Then, these inputs are ran through the layers of the GCN, which takes one at a t
 The output from the GCN is a node embeddingm which is the original node but transformed into an embedding vector, this represents all of the neighbour information about the node which was aggregated in the process before. Also a class score is given to each node, giving the likelihood of it belonging to a particular class eg.  
 
 # Mathematics
-
 The basics mathematics of a GCN is relatively simple to grasp: first, the graph is represented with two matricies, the **adjacency** and the **degree** matrix. The adjacency matrix (_square_) having values indicating the prescence of a node and the degree matrix (_diagonal_), with each diagonal value indicating how many edges a node has (also reffered to as the **degree** of a node).
 
-Next is the actual main function of the GCN which is the GCNCONV (convolution) function:```latex
+Next is the actual main function of the GCN which is the GCNCONV (convolution) function: ```latex
 H^{(l+1)} = \sigma \left( D^{-\frac{1}{2}} A D^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)
+Where H is 
+Sigma is
+D is
+W is
 
+H^(l): The matrix of node features at layer 'l' of the GCN.
+D: Degree matrix of the graph.
+A: Adjacency matrix of the graph.
+W^(l): A trainable weight matrix for layer 'l'.
+σ: A non-linear activation function (e.g., ReLU).
 
 # Code
 
