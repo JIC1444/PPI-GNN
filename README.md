@@ -15,9 +15,13 @@ The basics mathematics of a GCN is relatively simple to grasp: first, the graph 
 
 Next is the actual main function of the GCN which is the GCNCONV (convolution) function: ```latex
 H^{(l+1)} = \sigma \left( D^{-\frac{1}{2}} A D^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)```
+
 Where ```latexH^{l}``` is the matrix of node features, at layer l
-```latex\sigma``` is Relu (non-linear activation function)
+
+```latex\sigma``` is the Relu function (non-linear activation function)
+
 D is the degree matrix
+
 ```latexW^{l}``` is the weight matrix, at layer l
 
 # Code
