@@ -28,7 +28,7 @@ D is the degree matrix
 
 ```latexW^{l}``` is the weight matrix, at layer l
 
-# Code
+# Code of the GCN
 
 First, we must install and call the correct libraries for the project:
 
