@@ -89,4 +89,4 @@ Epoch: 198, Loss: 0.1199, Val: 0.5417, Test: 0.5474
 Epoch: 199, Loss: 0.1198, Val: 0.5461, Test: 0.5523
 
 
-From these results we can see that the loss is going down slightly, which is good. The Test values do go up from a below average score to just an average score, which is to be expected as this model is incredibly bearbones and not specialised or tuned in any way.
+From these results we can see that the loss is going down slightly, which is good. The Test values do go up from a below average score to just an average score, which is to be expected as this model is incredibly bearbones and not specialised or tuned in any way. I look to tuning the parameters of the model as the next step!
