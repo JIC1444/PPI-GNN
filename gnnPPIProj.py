@@ -23,7 +23,7 @@ train_data = Batch.from_data_list(train_dataset)
 #DataBatch(x=[44906,50], edge_index=[2,1226368], y=[44906,121], batch=[44906], ptr=[21])
 
 cluster_data = ClusterData(train_data, num_parts=4,
-                           , recursive=False,
+                           recursive=False,
                            save_dir=train_dataset.processed_dir) 
 #ClusterData(50)
 train_loader = ClusterLoader(cluster_data, batch_size=1, shuffle=True,
