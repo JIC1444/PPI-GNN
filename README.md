@@ -15,7 +15,7 @@ Then, these inputs are ran through the layers of the GCN, which takes one at a t
 The output from the GCN is a node embeddingm which is the original node but transformed into an embedding vector, this represents all of the neighbour information about the node which was aggregated in the process before. Also a class score is given to each node, giving the likelihood of it belonging to a particular class eg.  
 
 # Mathematics of the GCN
-The basics mathematics of a GCN is relatively simple to grasp: first, the graph is represented with two matricies, the **adjacency** and the **degree** matrix. The adjacency matrix (_square_) having values indicating the prescence of a node and the degree matrix (_diagonal_), with each diagonal value indicating how many edges a node has (also reffered to as the **degree** of a node).
+The basic mathematics of a GCN is relatively simple to grasp: first, the graph is represented with two matricies, the **adjacency** and the **degree** matrix. The adjacency matrix (_square_) having values indicating the prescence of a node and the degree matrix (_diagonal_), with each diagonal value indicating how many edges a node has (also reffered to as the **degree** of a node).
 
 Next is the actual main function of the GCN which is the GCNCONV (convolution) function: ```latex
 H^{(l+1)} = \sigma \left( D^{-\frac{1}{2}} A D^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)```
@@ -27,6 +27,8 @@ Where ```latexH^{l}``` is the matrix of node features, at layer l
 D is the degree matrix
 
 ```latexW^{l}``` is the weight matrix, at layer l
+
+
 
 # Code of the GCN
 
