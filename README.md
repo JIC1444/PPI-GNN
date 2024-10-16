@@ -5,30 +5,31 @@ This project uses the NetworkX and PyTorch libraries to display the relationship
 ## Knowledge Graphs
 A knowledge graph (KG) consists of two objects: nodes and edges. Nodes can represent almost anything, edges represent the relationship between two given nodes. Here, a node represents a protein and the existence of an edge implies that two proteins interact.
 
-## Graph Convolutional Networks
+Mathematically a graph is written $G = (V, E, \boldsymbol{A})$ where $V$ is the set of nodes, $E$ is 
 
+## Graph Convolutional Networks
 A graph convolutional network (GCN) is a type of graph neural network (GNN), a GCN is made up of a few layers: a graph convolution, pooling and fully connected. The core of a GCN is in the name - the graph convolution layer, it aggregates data from a neighbouring nodes, for all nodes. The pooling layer decreases the dimensionality of the hidden, convoluted graph by discarding a percentage of the nodes which have the least information. The fully connected layer 
 
-
-# Mathematics of the GCN
+## Mathematics of the Model Layers
 The mathematical equations within deep learning is not particularly complicated to write out, in practice however doing the actualy calculations is very complex due to the sheer size of the matricies.
+
+There are several inputs to the GCN: 
 
 The mathematics of a GCN is relatively simple to grasp: first, the graph is represented with two matricies, the **adjacency** and the **degree** matrix. The adjacency matrix (_square_) having values indicating the prescence of a node and the degree matrix (_diagonal_), with each diagonal value indicating how many edges a node has (also reffered to as the **degree** of a node).
 
-Next is the actual main function of the GCN which is the GCNCONV (convolution) function:
+Next is the actual main function of the GCN which is the GraphConv function:\
+\
 $H^{(l+1)} = \sigma \left( D^{-\frac{1}{2}} A D^{-\frac{1}{2}} H^{(l)} W^{(l)} \right)$
 
-Where $H^{l}$ is the matrix of node features, at layer $l$
-
-$\sigma$ is the ReLU activation function (or some other non-linear activation function).
-
-$D$ is the degree matrix
-
-$W^{l}$ is the weight matrix, at layer $l$
+> Where $H^{(l)}$ is the matrix of node features, at layer $l$
+> $\sigma$ is the ReLU activation function (or some other non-linear activation function).
+> $D$ is the degree matrix.
+> $A$ is the 
+> $W^{l}$ is the weight matrix, at layer $l$.
 
 
 
-# Code of the GCN
+# Code and Method Walkthrough
 
 First, we must install and call the correct libraries for the project:
 
