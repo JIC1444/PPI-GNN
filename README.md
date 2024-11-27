@@ -1,11 +1,13 @@
 # Python-Protein-Protein-Interaction-GNN-Project
 ## Overview
-This project is aimed for those with limited experience in PyTorch and no exposure to Graph Neural Networks (GNNs). Using mainly the NetworkX and PyTorch libraries to display the relationships between proteins within a dataset with a graph, then train a neural network to predict whether two new proteins will interact with one another. Protein-protein interactions are key in drug development, the interconnected web of relationships and proteins relies on deep learning algorithms over classical machine learning algorithms to analyise and comprehend due to the hierarchical nature of the hidden layers within the GNN, allowing it to find increasingly complex patterns with deeper and deeper layers.
+This project is aimed for those with limited experience in PyTorch and no exposure to Graph Neural Networks (GNNs). Using mainly the NetworkX and PyTorch libraries to display the relationships between proteins within a dataset with a graph, then train a neural network to predict whether two new proteins will interact with one another. 
+
+Protein-protein interactions are key in drug development, the interconnected web of relationships and proteins relies on deep learning algorithms over classical machine learning algorithms to analyise and comprehend due to the hierarchical nature of the hidden layers within the GNN, allowing it to find increasingly complex patterns with deeper and deeper layers.
 
 ## Knowledge Graphs
 A knowledge graph (KG) consists of two objects: nodes and edges. Nodes can represent almost anything, edges represent the relationship between two given nodes. In this PPI dataset, a **node** represents a **protein** and the existence of an **edge** implies that **two proteins interact**.
 
-Mathematically a graph is written $G = (V, E, \boldsymbol{A})$ where $V$ is the set of nodes, $E$ is the edges between each pair of nodes and $\mathbf{A}$ is the adjacency matrix. This is useful notation when observing the graph convolutional function.
+Mathematically a graph is written $G = (V, E, \boldsymbol{A})$ where $V$ is the set of nodes, $E$ is the edges between each pair of nodes and $\mathbf{A}$ is the adjacency matrix. This is useful notation when observing the graph convolution function.
 
 ## Graph Convolutional Networks
 A Graph Convolutional Network (GCN) is a type of GNN. A GCN is made up of a few layers: a graph convolution layer (commonly either spectral, spatial or attention), a pooling layer and a fully connected layer (also reffered to as a multi-layer perceptron or linear layer). 
@@ -196,22 +198,22 @@ Epoch: 197, Loss: 0.1182, Val: 0.5428, Test: 0.5481
 Epoch: 198, Loss: 0.1199, Val: 0.5417, Test: 0.5474
 Epoch: 199, Loss: 0.1198, Val: 0.5461, Test: 0.5523
 
-## Observations and potential improvements 
-The loss actually starts out at a relatively low value and decreases by about 33%.
+## Observations
+The loss actually starts out at a relatively low value and decreases by about 33%. This is a good start!
 
-The validation and the test accuracies increase by 0.15, this is a good start but not quite satisfactory, ending up at an accuracy of just 55%. 
+The validation and the test accuracies increase by 0.15, this is also a good start but not quite satisfactory, ending up at an accuracy of just 55%. 
 
-Let us plot the graph of the loss and val/test accuracy to see either if the model converged and cannot improve anymore, or if it simply needs more training time with the current parameter values. 
+To determine if the model is **overfitting or underfitting** we can use the values of the training and validation loss. If the validation loss is _high_ but the training loss is _low_, this is a sign of overfitting (since it shows that the model does well on seen data, but fails to generalise and predict new data). If both loss values are similarly high and static, this indicates underfitting (the model does not effectivley capture any of the relationships in the data).
 
+If we apply these rules, then it seems that the model could be underfitting, due to the low F1 accuracy score in the test and the limited movement 
 
+If you made it this far, then congrats - you have just created your first Graph Neural Network architecture!
 
-To determine if the model is overfitting or underfitting we can use the values of the training and validation loss. If the validation loss is high but the training loss is low, this is a sign of overfitting (since it shows that the model does well on seen data, but fails to generalise and predict new data). If both loss values are similarly high and static, this indicates underfitting (the model does not effectivley capture any of the relationships in the data).
+## Extensions
+**Extension 1**: How could the parameters be modified to improve the performance?
 
-
-
-
-
-
+**Extension 2**: How could the model be modified to no longer underfit to the data?
+_Hint: think about how a model can recognise more complex patterns when increasing layers_
 
 
 
